@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "scripts": {
+    "sass": "sass static/portfolio/scss/main.scss static/portfolio/styles.css --watch",
+    "build-sass": "sass static/portfolio/scss/main.scss static/portfolio/styles.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

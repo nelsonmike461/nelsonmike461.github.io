@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/portfolio/styles.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Me😊</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Introduction and Navigation -->
+      <header class="header">
+        <div class="intro">
+          <div class="intro__elements">
+            <div class="intro__title">
+              <a href="/templates/portfolio/index.html">
+                <div class="intro__logo">
+                  <svg class="intro__logo--icon">
+                    <use
+                      xlink:href="/static/portfolio/images/Svg/logo.svg#logo-icon"
+                    ></use>
+                  </svg>
+                </div>
+                <div class="intro__name">
+                  <p>Hi, I'am Nelson</p>
+                </div></a
+              >
+            </div>
+            <p class="intro__description">
+              I am an ambitious computer science graduate with a solid
+              foundation in software development and a passion for innovative
+              technology. Eager to apply my knowledge in real world scenarios
+              and contribute to a forward thinking organization.
+            </p>
+            <!-- Links -->
+            <ul class="intro_links">
+              <li>
+                <a href="mailto:nelsonmike461@gmail.com" target="_blank"
+                  >Email</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/nelsonmike461" target="_blank"
+                  >Github</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/nelsonmike461"
+                  target="_blank"
+                  >Linkedin</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UCWLxBvTPNa0vIE2fo3MQIPg"
+                  class="youtube-link"
+                  download
+                  >Youtube</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/static/portfolio/document/Nelson.pdf"
+                  class="resume-link"
+                  download
+                  >Resume</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="navigation">
+            <input
+              type="checkbox"
+              class="navigation__checkbox"
+              id="nav-toggle"
+            />
+
+            <label for="nav-toggle" class="navigation__button">
+              <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <!-- navigation -->
+            <nav class="navigation__nav">
+              <ul class="navigation__list">
+                <li class="navigation__item">
+                  <a class="navigation__link" href="#about">About</a>
+                </li>
+                <li class="navigation__item">
+                  <a class="navigation__link" href="#skills">Skills</a>
+                </li>
+                <li class="navigation__item">
+                  <a class="navigation__link" href="#projects">Projects</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- main content -->
+      <main class="details">
+        <!-- About -->
+        <div id="about" class="details__about">
+          <h2>ABOUT</h2>
+          <p>
+            I’m a computer science graduate based in Whitefield, Bangalore. With
+            a strong foundation in programming and web development, I am eager
+            to start my professional journey and apply my skills in real-world
+            scenarios.
+          </p>
+          <p>
+            During my studies, I worked on various projects that honed my
+            abilities in HTML, CSS, JavaScript, Python, Django, and React. I
+            enjoy creating web applications with intuitive UIs, clear visual
+            hierarchy, and seamless user experiences.
+          </p>
+          <p>
+            I am actively seeking opportunities to start my career and
+            contribute to a forward-thinking organization. I’m available for
+            freelance projects or entry-level positions. Feel free to
+            <a href="mailto:nelsonmike461@gmail.com">reach out via email!</a>
+          </p>
+          <p>Cheers 😁</p>
+        </div>
+
+        <!-- Skills -->
+        <div id="skills" class="details__skills">
+          <h2>SKILLS</h2>
+          <div class="details__skills--container">
+            <!-- Development -->
+            <div class="details__skills--dev">
+              <h3>Development</h3>
+              <ul>
+                <li>HTML</li>
+                <li>CSS/SCSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Django</li>
+                <li>Flask</li>
+              </ul>
+            </div>
+            <!-- Design -->
+            <div class="details__skills--dev">
+              <h3>Design</h3>
+              <ul>
+                <li>Figma</li>
+                <li>Wireframing</li>
+                <li>Webflow</li>
+              </ul>
+            </div>
+            <!-- Programing -->
+            <div class="details__skills--dev">
+              <h3>Programing</h3>
+              <ul>
+                <li>Python</li>
+                <li>ORM</li>
+                <li>SQL</li>
+                <li>SQLite</li>
+              </ul>
+            </div>
+            <div class="details__skills--dev">
+              <h3>Tools</h3>
+              <ul>
+                <li>Git</li>
+                <li>CI/CD</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Projects -->
+        <div id="projects" class="details__projects">
+          <h2>PROJECTS</h2>
+          <ul class="project-list" id="projectList">
+            <li>
+              <div class="details__projects--container">
+                <h3>
+                  <span
+                    ><a
+                      href="https://github.com/nelsonmike461/Network"
+                      target="_blank"
+                      >Network</a
+                    ></span
+                  >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </h3>
+                <div class="project-hover-container">
+                  <p>
+                    A social network platform where users can create posts,
+                    follow other users, and like or comment on posts.
+                  </p>
+                  <div class="project-hover-gif">
+                    <video
+                      src="/static/portfolio/images/mp4/Network.mp4"
+                      alt="Network Project Demo"
+                      muted
+                      loop
+                      playinline
+                    ></video>
+                  </div>
+                </div>
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javacript</li>
+                  <li>Python</li>
+                  <li>React</li>
+                  <li>Django</li>
+                  <li>ORM</li>
+                </ul>
+                <ul class="details__projects--container-link">
+                  <li>
+                    <a
+                      href="https://github.com/nelsonmike461/Network"
+                      target="_blank"
+                      >CODE</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://youtu.be/uKwLI9mHCQk" target="_blank"
+                      >DEMO</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="details__projects--container">
+                <h3>
+                  <span
+                    ><a
+                      href="https://github.com/nelsonmike461/movie_recommender"
+                      target="_blank"
+                      >Movie Recommender</a
+                    ></span
+                  >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </h3>
+                <div class="project-hover-container">
+                  <p>
+                    A web application that recommends new unwatched movies based
+                    on the genres of movies you've already watched.
+                  </p>
+                  <div class="project-hover-gif">
+                    <video
+                      src="/static/portfolio/images/mp4/MovieRecommender.mp4"
+                      muted
+                      loop
+                      playinline
+                      alt="Movie Recommender Project Demo"
+                    ></video>
+                  </div>
+                </div>
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javacript</li>
+                  <li>Python</li>
+                  <li>Django</li>
+                  <li>ORM</li>
+                </ul>
+                <ul class="details__projects--container-link">
+                  <li>
+                    <a
+                      href="https://github.com/nelsonmike461/movie_recommender"
+                      target="_blank"
+                      >CODE</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://youtu.be/XentZYtzTqE?si=jlLnqvj8YrIOaz7E"
+                      target="_blank"
+                      >DEMO</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+          <button id="showMoreBtn">Show More</button>
+        </div>
+        <div class="footer">
+          <div>
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            , Nelson Michael. All rights reserved.
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="/static/portfolio/function.js"></script>
+  </body>
+</html>

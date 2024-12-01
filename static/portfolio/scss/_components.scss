@@ -1,0 +1,531 @@
+@use "base" as *;
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+
+  &__logo > svg {
+    height: 4rem;
+    width: 4rem;
+
+    @media only screen and (max-width: $bp-small) {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+
+  &__title > a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  &__name > p {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-grey-light-3);
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 4rem;
+    }
+  }
+
+  &__description {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.8rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
+  }
+
+  &_links {
+    display: flex;
+    padding: 2rem;
+    padding-left: 0;
+    gap: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      gap: 5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      gap: 1.8rem;
+    }
+
+    & > li {
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.2rem 1rem;
+      background-color: #6c7e8b33;
+      border-radius: 1rem;
+      border: 1px solid #6c7e8b33;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.54rem;
+        color: var(--color-grey-light-1);
+      }
+
+      &:hover {
+        transition: ease-in 0.2s;
+        border-color: var(--color-grey-light-4);
+
+        & > a {
+          color: var(--color-grey-light-1);
+        }
+      }
+    }
+  }
+}
+
+.navigation {
+  padding-bottom: 3rem;
+  padding-left: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  &__checkbox {
+    display: none;
+  }
+
+  // Mobile navigation
+  @media only screen and (max-width: $bp-medium) {
+    &__button {
+      background-color: var(--color-primary-light);
+      height: 4.5rem;
+      width: 4.5rem;
+      position: fixed;
+      top: 3.6rem;
+      right: 2rem;
+      border-radius: 50%;
+      z-index: 2000;
+      box-shadow: 0 1rem 3rem rgba(var(--color-primary-dark), 0.1);
+      text-align: center;
+      cursor: pointer;
+
+      @media only screen and (max-width: $bp-small) {
+        top: 3rem;
+      }
+    }
+
+    &__background {
+      background-color: var(--color-primary-dark);
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 3.6rem;
+      right: 2rem;
+      background-image: radial-gradient(
+        var(--color-primary-dark),
+        var(--color-primary)
+      );
+      z-index: 1000;
+      transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+      @media only screen and (max-width: $bp-small) {
+        top: 3rem;
+      }
+    }
+
+    &__checkbox:checked ~ &__background {
+      transform: scale(80);
+    }
+
+    &__nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+      & > ul {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+
+        & > li {
+          & > a {
+            font-size: 1.6rem !important;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--color-primary-light);
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &__checkbox:checked ~ &__nav {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    &__icon {
+      position: relative;
+      margin-top: 2.2rem;
+
+      &,
+      &::before,
+      &::after {
+        width: 3rem;
+        height: 2px;
+        background-color: var(--color-primary-dark);
+        display: inline-block;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+      }
+
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+    }
+
+    &__checkbox:checked + &__button &__icon {
+      background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+  }
+
+  // Desktop navigation
+  &__nav {
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      & > li > a {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -3px;
+          left: 0;
+          background-color: var(--color-primary-light);
+          transition: width 0.2s ease-in-out;
+        }
+
+        &:hover::after,
+        &.active::after {
+          // Added active state
+          width: 100%;
+        }
+
+        &.active {
+          // Added active class styles
+          font-weight: 700;
+          color: var(--color-primary-light);
+        }
+      }
+    }
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+
+  @media only screen and (max-width: $bp-small) {
+    gap: 7rem;
+  }
+
+  &__about {
+    & > h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1rem;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(20rem);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.6rem;
+      }
+    }
+
+    & > p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
+      padding-right: 0.8rem;
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.8rem;
+      }
+
+      & > a {
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--color-primary-light);
+          transition: width 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__skills {
+    &--container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10rem;
+
+      // @media only screen and (max-width: $bp-medium) {
+      //   gap: 15rem;
+      // }
+
+      @media only screen and (max-width: $bp-small) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 5rem;
+        column-gap: 15rem;
+      }
+    }
+
+    & > h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1rem;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(20rem);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.6rem;
+      }
+
+      // @media only screen and (max-width: $bp-small) {
+      //   font-size: 1.6rem;
+      // }
+    }
+
+    &--dev {
+      & > h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 2rem;
+        }
+      }
+
+      & > ul {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+        gap: 0.2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.7rem;
+        }
+      }
+    }
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  &__projects {
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1rem;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(20rem);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.6rem;
+      }
+    }
+
+    &--container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      h3 {
+        font-size: 1.7rem;
+        display: flex;
+        font-weight: 700;
+        align-items: center;
+        gap: 0.5rem;
+
+        svg {
+          height: 1.4rem;
+          width: 1.4rem;
+          stroke: var(--color-grey-light-4);
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.8rem;
+        }
+      }
+
+      ul {
+        display: flex;
+        font-size: 1.3rem;
+        font-weight: 100;
+        gap: 1rem;
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.7rem;
+        }
+      }
+
+      &-link {
+        display: flex !important;
+        gap: 2rem !important;
+
+        & > li {
+          font-size: 1.2rem;
+          font-weight: 600;
+          padding: 0.2rem 1rem;
+          background-color: #6c7e8b33;
+          border-radius: 1rem;
+          border: 1px solid #6c7e8b33;
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 1.6rem;
+          }
+
+          &:hover {
+            border-color: var(--color-grey-light-4);
+            transition: border-color 0.2s ease-in;
+          }
+        }
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+      margin-top: 5rem;
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-grey-light-4);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 3px;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        color: var(--color-grey-light-1);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-primary-light);
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  font-size: 1.2rem;
+  align-self: self-end;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 1.4rem;
+    align-self: center;
+  }
+}
